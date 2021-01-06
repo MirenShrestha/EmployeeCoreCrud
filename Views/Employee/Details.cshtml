@@ -1,0 +1,41 @@
+﻿@model EmployeeCoreCrud.Models.Employee
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h4>Employee Detail</h4>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmpCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OffcieLocation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OffcieLocation)
+        </dd>
+    </dl>
+</div>
+<hr />
+<div class="col-md-2">
+    <a asp-action="Index" class="btn btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-backward"></i></span>Back to List</a>
+</div>

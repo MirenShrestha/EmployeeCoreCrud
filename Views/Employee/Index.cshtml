@@ -1,0 +1,62 @@
+﻿@model IEnumerable<EmployeeCoreCrud.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Employee Management System</h2>
+<div style="float:right">
+    <form method="post" asp-controller="Account" asp-action="Logout">
+        <input type="submit" value="Logout" />
+    </form>
+</div>
+
+<hr />
+
+<h3>Hello! @User.Identity.Name</h3>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OffcieLocation)
+            </th>
+            <th>
+                <a asp-action="AddorEdit" class="btn btn-success"><span class="btn-label"><i class="glyphicon glyphicon-plus"></i></span>Add Employee</a>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OffcieLocation)
+                </td>
+                <td>
+                    <a asp-action="AddorEdit" asp-route-id="@item.EmployeeId" class="btn btn-warning"><span class="btn-label"><i class="glyphicon glyphicon-pencil"></i></span>Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.EmployeeId" class="btn btn-primary"><span class="btn-label"><i class="glyphicon glyphicon-user"></i></span>Detail</a>
+                    <a asp-action="Delete" asp-route-id="@item.EmployeeId" class="btn btn-danger" onclick="return confirm('Are you sure to delete this record'?)"><span class="btn-label"><i class="glyphicon glyphicon-remove"></i></span>Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
